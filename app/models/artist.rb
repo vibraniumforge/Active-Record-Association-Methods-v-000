@@ -1,3 +1,4 @@
+require "pry"
 class Artist < ActiveRecord::Base
   has_many :songs
   has_many :genres, through: :songs
@@ -5,6 +6,7 @@ class Artist < ActiveRecord::Base
   def get_genre_of_first_song
     #return the genre of the artist's first saved song
     self.songs.first
+    binding.pry
   end
 
   def song_count
