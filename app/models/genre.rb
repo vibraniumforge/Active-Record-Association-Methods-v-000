@@ -5,7 +5,6 @@ class Genre < ActiveRecord::Base
 
   def song_count
     # return the number of songs in a genre
-    # binding.pry
     self.songs.count
   end
 
@@ -18,8 +17,8 @@ class Genre < ActiveRecord::Base
   def all_artist_names
     # return an array of strings containing every musician's name
     # binding.pry
-    x=[]
-    x<<self.artists.name
-    x
+    self.artists.collect do |artist|
+      artist.name
+    end
   end
 end
