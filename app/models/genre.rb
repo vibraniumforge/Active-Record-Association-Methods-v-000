@@ -1,3 +1,4 @@
+require "pry"
 class Genre < ActiveRecord::Base
   has_many :songs
   has_many :artists, through: :songs
@@ -9,6 +10,7 @@ class Genre < ActiveRecord::Base
 
   def artist_count
     # return the number of artists associated with the genre
+    binding.pry
     self.songs.artists.count
   end
 
